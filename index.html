@@ -66,12 +66,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-shrink: 0;
         }
 
         .logo-icon {
@@ -85,6 +88,7 @@
             color: var(--white);
             font-weight: 700;
             font-size: 20px;
+            user-select: none;
         }
 
         .logo-text {
@@ -93,6 +97,7 @@
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            user-select: none;
         }
 
         .nav-button {
@@ -109,6 +114,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-shrink: 0;
         }
 
         .nav-button:hover {
@@ -118,6 +124,38 @@
 
         .nav-button:active {
             transform: translateY(0);
+        }
+
+        /* User info */
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 0 2px var(--primary);
+            background-color: var(--light-gray);
+            user-select: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .user-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .user-welcome {
+            font-size: 16px;
+            white-space: nowrap;
         }
 
         /* Cards de total */
@@ -144,7 +182,7 @@
         }
 
         .total-card::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -179,6 +217,7 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
+            user-select: none;
         }
 
         .total-card:nth-child(1) .total-card-icon {
@@ -200,13 +239,15 @@
             font-size: 16px;
             font-weight: 600;
             color: var(--dark-gray);
+            user-select: none;
         }
 
         .total-value {
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 8px;
-            font-feature-settings: 'tnum' on, 'lnum' on;
+            font-feature-settings: "tnum" on, "lnum" on;
+            user-select: text;
         }
 
         .total-card:nth-child(1) .total-value {
@@ -225,6 +266,7 @@
             font-size: 14px;
             color: var(--gray);
             font-weight: 500;
+            user-select: none;
         }
 
         /* Formulário */
@@ -266,19 +308,23 @@
             font-size: 20px;
             font-weight: 700;
             color: var(--dark);
+            user-select: none;
         }
 
         .close-btn {
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 28px;
             color: var(--gray);
             cursor: pointer;
             transition: color 0.3s ease;
+            user-select: none;
+            line-height: 1;
         }
 
         .close-btn:hover {
             color: var(--dark);
+            transform: scale(1.1);
         }
 
         .form-grid {
@@ -301,11 +347,14 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            user-select: none;
         }
 
         .form-label::after {
-            content: '*';
+            content: "*";
             color: var(--danger);
+            font-weight: 700;
+            margin-left: 2px;
         }
 
         .form-input {
@@ -341,6 +390,7 @@
             transition: all 0.3s ease;
             width: 100%;
             box-shadow: 0 4px 12px rgba(0, 158, 227, 0.25);
+            user-select: none;
         }
 
         .form-submit:hover {
@@ -382,17 +432,21 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .card-title {
             font-size: 18px;
             font-weight: 700;
             color: var(--dark);
+            user-select: none;
         }
 
         .chart-controls {
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .chart-btn {
@@ -405,6 +459,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
+            user-select: none;
         }
 
         .chart-btn.active,
@@ -444,6 +499,7 @@
             font-size: 14px;
             position: sticky;
             top: 0;
+            user-select: none;
         }
 
         .data-table td {
@@ -480,6 +536,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            user-select: none;
         }
 
         .delete-btn {
@@ -505,6 +562,7 @@
             box-shadow: var(--card-shadow-hover);
             transform: translateX(100%);
             transition: transform 0.3s ease;
+            user-select: none;
         }
 
         .notification.show {
@@ -524,6 +582,7 @@
             text-align: center;
             padding: 60px 20px;
             color: var(--gray);
+            user-select: none;
         }
 
         .empty-state-icon {
@@ -568,40 +627,46 @@
             .form-grid {
                 grid-template-columns: 1fr;
             }
+
+            .user-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .user-welcome {
+                font-size: 14px;
+            }
+
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .chart-controls {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
-        /* Utilitários */
-        .currency {
-            font-feature-settings: 'tnum' on, 'lnum' on;
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
         }
 
-        .fade-in {
-            animation: fadeIn 0.3s ease;
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 158, 227, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Scrollbar personalizado */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--light-gray);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gray);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--dark-gray);
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -617,6 +682,11 @@
                 <button class="nav-button" id="btn-nova-receita">
                     <span>+ Nova Receita</span>
                 </button>
+                <div class="user-info" id="user-info">
+                    <img src="https://ui-avatars.com/api/?name=Usuário&background=009ee3&color=fff&rounded=true&size=44" alt="Avatar do usuário" id="user-avatar" class="user-avatar" />
+                    <span id="user-welcome" class="user-welcome">Seja bem-vindo, Usuário</span>
+                    <input type="file" id="avatar-input" accept="image/*" style="display:none" />
+                </div>
             </div>
         </header>
 
@@ -656,30 +726,30 @@
                 <h2 class="form-title">Adicionar Nova Receita</h2>
                 <button class="close-btn" id="close-form">×</button>
             </div>
-            
+
             <form id="receita-form">
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">Mês/Ano</label>
                         <input type="month" class="form-input" id="mes" required>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label class="form-label">Salário Bruto</label>
+                        <label class="form-label">Salário Bruto (R$)</label>
                         <input type="number" class="form-input" id="salario" step="0.01" min="0" placeholder="0,00" required>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label class="form-label">Descontos</label>
+                        <label class="form-label">Descontos (R$)</label>
                         <input type="number" class="form-input" id="descontos" step="0.01" min="0" placeholder="0,00" required>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label class="form-label">Descrição</label>
+                        <label class="form-label">Descrição (opcional)</label>
                         <input type="text" class="form-input" id="descricao" placeholder="Ex: Salário Empresa XYZ">
                     </div>
                 </div>
-                
+
                 <button type="submit" class="form-submit">Adicionar Receita</button>
             </form>
         </div>
@@ -707,12 +777,8 @@
                     <h2 class="card-title">Histórico de Receitas</h2>
                 </div>
                 <div class="table-container" id="tabela-container">
-                    <div class="empty-state">
-                        <div class="empty-state-icon">📊</div>
-                        <p class="empty-state-text">Nenhuma receita cadastrada</p>
-                        <button class="nav-button" onclick="document.getElementById('btn-nova-receita').click()">
-                            Adicionar Primeira Receita
-                        </button>
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
                     </div>
                 </div>
             </div>
@@ -726,9 +792,9 @@
         // Configuração do Supabase
         const supabaseUrl = 'https://dylziaqkyavkfwjepqkp.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR5bHppYXFreWF2a2Z3amVwcWtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI0NTc1OTgsImV4cCI6MjA2ODAzMzU5OH0.gy5jXxKOTgeCf0Rwq7ktLTz1pyoZ8dJjZOK9UB9rHCM';
-        
+
         const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-        
+
         // Elementos DOM
         const btnNovaReceita = document.getElementById('btn-nova-receita');
         const closeForm = document.getElementById('close-form');
@@ -740,11 +806,16 @@
         const totalLiquidoEl = document.getElementById('total-liquido');
         const notificationEl = document.getElementById('notification');
         const chartBtns = document.querySelectorAll('.chart-btn');
-        
+        const userInfo = document.getElementById('user-info');
+        const userAvatar = document.getElementById('user-avatar');
+        const userWelcome = document.getElementById('user-welcome');
+        const avatarInput = document.getElementById('avatar-input');
+
         let receitas = [];
         let chartInstance = null;
         let currentChartType = 'bar';
-        
+        let ultimaReceitaId = null;
+
         // Formatar moeda BRL
         function formatarMoeda(valor) {
             return new Intl.NumberFormat('pt-BR', {
@@ -752,29 +823,136 @@
                 currency: 'BRL'
             }).format(valor);
         }
-        
+
         // Mostrar notificação
         function showNotification(message, type = 'success') {
             notificationEl.textContent = message;
             notificationEl.className = `notification ${type} show`;
-            
+
             setTimeout(() => {
                 notificationEl.className = 'notification';
             }, 3000);
         }
-        
+
         // Toggle formulário
         btnNovaReceita.addEventListener('click', () => {
             formContainer.classList.toggle('show');
         });
-        
+
         closeForm.addEventListener('click', () => {
             formContainer.classList.remove('show');
         });
-        
+
+        // Carregar dados do usuário da última receita
+        async function carregarUsuario() {
+            try {
+                const { data, error } = await supabase
+                    .from('receitas')
+                    .select('id, descricao, avatar_url')
+                    .order('id', { ascending: false })
+                    .limit(1)
+                    .single();
+
+                if (error) {
+                    console.warn('Erro ao buscar avatar em receitas:', error.message);
+                    usarUsuarioPadrao();
+                    return;
+                }
+
+                if (data) {
+                    ultimaReceitaId = data.id;
+                    const nome = data.descricao || "Usuário";
+                    userAvatar.src = data.avatar_url || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(nome) + '&background=009ee3&color=fff&rounded=true';
+                    userAvatar.alt = `Avatar de ${nome}`;
+                    userWelcome.textContent = `Seja bem-vindo, ${nome}`;
+                }
+            } catch (error) {
+                console.error('Erro ao carregar avatar:', error);
+                usarUsuarioPadrao();
+            }
+        }
+
+        function usarUsuarioPadrao() {
+            const nome = "Usuário";
+            userAvatar.src = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(nome) + '&background=009ee3&color=fff&rounded=true';
+            userAvatar.alt = `Avatar de ${nome}`;
+            userWelcome.textContent = `Seja bem-vindo, ${nome}`;
+        }
+
+        // Função para upload da imagem no Supabase Storage e salvar URL no banco
+        async function uploadAvatar(file, receitaId) {
+            if (!file || !receitaId) return;
+
+            const fileExt = file.name.split('.').pop();
+            const fileName = `avatar_${receitaId}.${fileExt}`;
+            const filePath = `${fileName}`;
+
+            try {
+                // Upload no bucket 'avatars' (crie este bucket no Supabase Storage)
+                const { data: uploadData, error: uploadError } = await supabase.storage
+                    .from('avatars')
+                    .upload(filePath, file, { upsert: true });
+
+                if (uploadError) throw uploadError;
+
+                // Obter URL público
+                const { data: publicUrlData } = supabase.storage
+                    .from('avatars')
+                    .getPublicUrl(filePath);
+
+                const avatarUrl = publicUrlData.publicUrl;
+
+                // Atualizar avatar_url na receita
+                const { error: updateError } = await supabase
+                    .from('receitas')
+                    .update({ avatar_url: avatarUrl })
+                    .eq('id', receitaId);
+
+                if (updateError) throw updateError;
+
+                // Atualizar avatar na tela
+                userAvatar.src = avatarUrl;
+                showNotification('Avatar atualizado com sucesso!');
+            } catch (error) {
+                console.error('Erro ao fazer upload do avatar:', error);
+                showNotification('Erro ao atualizar avatar', 'error');
+            }
+        }
+
+        // Evento: clicar no avatar abre seletor de arquivo
+        userAvatar.addEventListener('click', () => {
+            avatarInput.click();
+        });
+
+        // Evento: arquivo selecionado
+        avatarInput.addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            // Validar tipo e tamanho do arquivo
+            if (!file.type.startsWith('image/')) {
+                showNotification('Por favor, selecione uma imagem válida.', 'error');
+                return;
+            }
+            if (file.size > 2 * 1024 * 1024) {
+                showNotification('Imagem muito grande. Máximo 2MB.', 'error');
+                return;
+            }
+
+            if (!ultimaReceitaId) {
+                showNotification('Não foi possível identificar a receita para atualizar.', 'error');
+                return;
+            }
+
+            await uploadAvatar(file, ultimaReceitaId);
+
+            // Limpar input para permitir re-upload do mesmo arquivo se quiser
+            avatarInput.value = '';
+        });
+
         // Inicializar aplicação
         document.addEventListener('DOMContentLoaded', initApp);
-        
+
         async function initApp() {
             // Configurar event listeners
             receitaForm.addEventListener('submit', handleSubmit);
@@ -786,25 +964,34 @@
                     montarGrafico();
                 });
             });
-            
+
+            // Carregar dados do usuário
+            await carregarUsuario();
+
             // Carregar receitas do Supabase
             await loadReceitas();
-            
+
             // Definir mês atual como padrão
             const hoje = new Date();
             const mesAtual = hoje.toISOString().slice(0, 7);
             document.getElementById('mes').value = mesAtual;
         }
-        
+
         async function loadReceitas() {
             try {
+                tabelaContainer.innerHTML = `
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+                `;
+
                 const { data, error } = await supabase
                     .from('receitas')
                     .select('*')
                     .order('mes', { ascending: false });
-                
+
                 if (error) throw error;
-                
+
                 receitas = data || [];
                 renderTabela();
                 calcularTotais();
@@ -812,9 +999,10 @@
             } catch (error) {
                 console.error('Erro ao carregar receitas:', error);
                 showNotification('Erro ao carregar dados', 'error');
+                renderTabela();
             }
         }
-        
+
         function renderTabela() {
             if (receitas.length === 0) {
                 tabelaContainer.innerHTML = `
@@ -828,7 +1016,7 @@
                 `;
                 return;
             }
-            
+
             let tableHTML = `
                 <table class="data-table">
                     <thead>
@@ -843,12 +1031,12 @@
                     </thead>
                     <tbody>
             `;
-            
+
             receitas.forEach(receita => {
                 const data = new Date(receita.mes);
                 const mes = data.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
                 const salarioLiquido = receita.salario - receita.descontos;
-                
+
                 tableHTML += `
                     <tr>
                         <td>${mes.charAt(0).toUpperCase() + mes.slice(1)}</td>
@@ -864,43 +1052,43 @@
                     </tr>
                 `;
             });
-            
+
             tableHTML += '</tbody></table>';
             tabelaContainer.innerHTML = tableHTML;
         }
-        
+
         function calcularTotais() {
             const totalSalario = receitas.reduce((sum, receita) => sum + receita.salario, 0);
             const totalDescontos = receitas.reduce((sum, receita) => sum + receita.descontos, 0);
             const totalLiquido = totalSalario - totalDescontos;
-            
+
             totalSalarioEl.textContent = formatarMoeda(totalSalario);
             totalDescontosEl.textContent = formatarMoeda(totalDescontos);
             totalLiquidoEl.textContent = formatarMoeda(totalLiquido);
         }
-        
+
         function montarGrafico() {
             const ctx = document.getElementById('graficoSalario').getContext('2d');
-            
+
             if (receitas.length === 0) {
                 if (chartInstance) chartInstance.destroy();
                 return;
             }
-            
+
             const receitasOrdenadas = [...receitas].sort((a, b) => new Date(a.mes) - new Date(b.mes));
             const labels = receitasOrdenadas.map(r => {
                 const d = new Date(r.mes);
                 return d.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' });
             });
-            
+
             const dataSalarioBruto = receitasOrdenadas.map(r => r.salario);
             const dataDescontos = receitasOrdenadas.map(r => r.descontos);
             const dataSalarioLiquido = receitasOrdenadas.map(r => r.salario - r.descontos);
-            
+
             if (chartInstance) chartInstance.destroy();
-            
+
             let datasets = [];
-            
+
             if (currentChartType === 'pie') {
                 datasets = [{
                     label: 'Salário Líquido',
@@ -935,7 +1123,7 @@
                     }
                 ];
             }
-            
+
             chartInstance = new Chart(ctx, {
                 type: currentChartType,
                 data: { labels, datasets },
@@ -961,40 +1149,43 @@
                 }
             });
         }
-        
+
         async function handleSubmit(e) {
             e.preventDefault();
-            
+
             const mesInput = document.getElementById('mes').value;
             const salario = parseFloat(document.getElementById('salario').value);
             const descontos = parseFloat(document.getElementById('descontos').value);
             const descricao = document.getElementById('descricao').value;
-            
+
             if (!mesInput || isNaN(salario) || isNaN(descontos) || descontos > salario) {
                 showNotification('Verifique os dados informados', 'error');
                 return;
             }
-            
+
             try {
                 const { data, error } = await supabase
                     .from('receitas')
-                    .insert([{ 
-                        mes: `${mesInput}-01`, 
-                        salario, 
-                        descontos, 
-                        descricao 
+                    .insert([{
+                        mes: `${mesInput}-01`,
+                        salario,
+                        descontos,
+                        descricao
                     }])
                     .select();
-                
+
                 if (error) throw error;
-                
+
                 receitas.unshift(data[0]);
                 renderTabela();
                 calcularTotais();
                 montarGrafico();
                 receitaForm.reset();
                 document.getElementById('mes').value = mesInput;
-                
+
+                // Atualizar avatar após adicionar nova receita
+                await carregarUsuario();
+
                 showNotification('Receita adicionada com sucesso!');
                 formContainer.classList.remove('show');
             } catch (error) {
@@ -1002,38 +1193,41 @@
                 showNotification('Erro ao salvar receita', 'error');
             }
         }
-        
+
         async function deleteReceita(id) {
             if (!confirm('Tem certeza que deseja excluir esta receita?')) return;
-            
+
             try {
                 const { error } = await supabase
                     .from('receitas')
                     .delete()
                     .eq('id', id);
-                
+
                 if (error) throw error;
-                
+
                 receitas = receitas.filter(receita => receita.id !== id);
                 renderTabela();
                 calcularTotais();
                 montarGrafico();
-                
+
+                // Atualizar avatar após excluir receita
+                await carregarUsuario();
+
                 showNotification('Receita excluída com sucesso');
             } catch (error) {
                 console.error('Erro:', error);
                 showNotification('Erro ao excluir receita', 'error');
             }
         }
-        
+
         // Expor função globalmente
         window.deleteReceita = deleteReceita;
-        
+
         // Formatar valores monetários
         document.getElementById('salario').addEventListener('blur', function() {
             if (this.value) this.value = parseFloat(this.value).toFixed(2);
         });
-        
+
         document.getElementById('descontos').addEventListener('blur', function() {
             if (this.value) this.value = parseFloat(this.value).toFixed(2);
         });
