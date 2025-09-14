@@ -4,38 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Receitas Financeiras</title>
+
+    <!-- Supabase e Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Fonte -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ---- Seus estilos originais ---- */
-        :root {
-            --primary: #009ee3;
-            --primary-dark: #0077b6;
-            --secondary: #00a650;
-            --accent: #ff6b00;
-            --danger: #ff3b30;
-            --warning: #ff9500;
-            --success: #34c759;
-            --dark: #1d1d1f;
-            --dark-gray: #424245;
-            --gray: #86868b;
-            --light-gray: #f5f5f7;
-            --white: #ffffff;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-            --border-radius: 16px;
-            --border-radius-sm: 12px;
-            --border-radius-lg: 20px;
-        }
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-        body{background:linear-gradient(135deg,#f8f9ff 0%,#f0f4ff 100%);color:var(--dark);line-height:1.6;min-height:100vh}
-        .app-container{max-width:1200px;margin:0 auto;padding:20px}
-        /* (mantive todos os estilos do código que você mandou, removi só duplicações) */
-        .action-btn{padding:8px 16px;border:none;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;transition:all .3s ease}
-        .delete-btn{background:rgba(255,59,48,0.1);color:var(--danger)}
-        .delete-btn:hover{background:var(--danger);color:#fff}
-    </style>
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
@@ -46,11 +24,10 @@
                     <div class="logo-icon">R$</div>
                     <h1 class="logo-text">Minhas Receitas</h1>
                 </div>
-                <button class="nav-button" id="btn-nova-receita">
-                    <span>+ Nova Receita</span>
-                </button>
+                <button class="nav-button" id="btn-nova-receita"><span>+ Nova Receita</span></button>
                 <div class="user-info" id="user-info">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/35aa3235-f96d-4c67-8588-7501bc435e4e.png" alt="Avatar do usuário" id="user-avatar" class="user-avatar" />
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/35aa3235-f96d-4c67-8588-7501bc435e4e.png" 
+                         alt="Avatar do usuário" id="user-avatar" class="user-avatar" />
                     <span id="user-welcome" class="user-welcome">Seja bem-vindo, João Silva</span>
                 </div>
             </div>
@@ -123,3 +100,9 @@
 
     <!-- Notificação -->
     <div class="notification" id="notification"></div>
+
+    <!-- Script externo -->
+    <script src="script.js"></script>
+</body>
+</html>
+
